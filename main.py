@@ -1,6 +1,10 @@
 from tkinter import * #importing all the classes and methods of tkinter module
 import random
-root=Tk()
+import ttkthemes
+from tkinter import ttk
+root=ttkthemes.ThemedTk()
+root.get_themes()
+root.set_theme("radiance")
 root.geometry("940x735+200+10")
 root.resizable(0,0)
 
@@ -61,23 +65,29 @@ totalwords_time_label.grid(row=0,column=6,padx=5)
 totalwords_count_label=Label(frame_output,text="0",font=("Tahoma",12,"bold"))
 totalwords_count_label.grid(row=0,column=7,padx=5)
 
-wrongwords_time_label=Label(frame_output,text="Wrong Words",font=("Tahoma",12,"bold"),fg="red")
-wrongwords_time_label.grid(row=0,column=8,padx=5)
+wrongwords_label=Label(frame_output,text="Wrong Words",font=("Tahoma",12,"bold"),fg="red")
+wrongwords_label.grid(row=0,column=8,padx=5)
 
 wrongwords_count_label=Label(frame_output,text="0",font=("Tahoma",12,"bold"))
 wrongwords_count_label.grid(row=0,column=9,padx=5)
 
+accuracy_label=Label(frame_output,text="Accuracy",font=("Tahoma",12,"bold"),fg="red")
+accuracy_label.grid(row=0,column=10,padx=5)
+
+accuracy_percent_label=Label(frame_output,text="0",font=("Tahoma",12,"bold"))
+accuracy_percent_label.grid(row=0,column=11,padx=5)
+
 button_Frame=Frame(mainframe)
 button_Frame.grid(row=4,column=0)
 
-startButton=Button(button_Frame,text="Start")
-startButton.grid(row=0,column=0)
+startButton=ttk.Button(button_Frame,text="Start")
+startButton.grid(row=0,column=0,padx=15)
 
-resetButton=Button(button_Frame,text="Reset")
-resetButton.grid(row=0,column=1)
+resetButton=ttk.Button(button_Frame,text="Reset",state=DISABLED)
+resetButton.grid(row=0,column=1,padx=15)
 
-exitButton=Button(button_Frame,text="Exit")
-exitButton.grid(row=0,column=2)
+exitButton=ttk.Button(button_Frame,text="Exit")
+exitButton.grid(row=0,column=2,padx=15)
 
 label_paragraph.grid(row=0,column=0)
 root.mainloop()
